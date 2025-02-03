@@ -1,4 +1,4 @@
-month_list = ["january", "feburary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+month_list = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
 month_numbers = {
     "january": 1,

@@ -50,12 +50,18 @@ def calc_days(month, day, final_month, final_day):
 
 def break_days(days, month):
     if (month_numbers[month.lower()] <= 5):
-        if (input("Remove (8) Spring Break days (yes/no)? ").lower() == 'yes'):
+
+        # add if statement to check if the date is past spring/fall break. if so, skip asking about spring/fall break
+
+        remove = input("Remove (8) Spring Break days (y|n)? ").lower()
+        if (remove == 'yes' | remove == 'y'):
             days -= 8
     else:
-        if (input("Remove (3) Fall Break days (yes/no)? ").lower()):
+        remove = input("Remove (3) Fall Break days (y|n)? ").lower()
+        if (remove == 'yes' | remove == 'y'):
             days -= 3
-        if (input("Remove (8) Thanksgiving Break days (yes/no)? ").lower()):
+        remove = input("Remove (8) Thanksgiving Break days (y|n)? ").lower()
+        if (remove == 'yes' | remove == 'y'):
             days -= 8
     return days
 
@@ -76,6 +82,7 @@ def print_results(month, day, final_month, final_day, total_days, meals):
     print('')
     return
 
+# main
 meals = get_meal_swipes()
 
 print("--- Starting Date ---")

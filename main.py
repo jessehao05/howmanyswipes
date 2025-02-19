@@ -26,11 +26,16 @@ def get_date():
         print("Invalid month.")
         month = input("Enter month: ")
 
+    keep_going = True
     day = input("Enter day: ")
-    while (not day.isdigit()):
-        print("Invalid day. ")
-        day = input("Enter day: ")
 
+    while (keep_going):
+        if (day.isdigit() and int(day) <= days_list[month_numbers[month.lower()] - 1]):
+            keep_going = False
+        else: 
+            print("Invalid day. ")
+            day = input("Enter day: ")
+        
     # add handling of numbers greater than the days in a certain month (ex. january 32)    
     return month, int(day)
 
@@ -54,14 +59,14 @@ def break_days(days, month):
         # add if statement to check if the date is past spring/fall break. if so, skip asking about spring/fall break
 
         remove = input("Remove (8) Spring Break days (y|n)? ").lower()
-        if (remove == 'yes' | remove == 'y'):
+        if (remove == 'yes' or remove == 'y'):
             days -= 8
     else:
         remove = input("Remove (3) Fall Break days (y|n)? ").lower()
-        if (remove == 'yes' | remove == 'y'):
+        if (remove == 'yes' or remove == 'y'):
             days -= 3
         remove = input("Remove (8) Thanksgiving Break days (y|n)? ").lower()
-        if (remove == 'yes' | remove == 'y'):
+        if (remove == 'yes' or remove == 'y'):
             days -= 8
     return days
 

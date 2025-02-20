@@ -20,6 +20,16 @@ days_list = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] # days in each mont
 def get_meal_swipes():
     return int(input("Meal swipes remaining: "))
 
+def leap_year():
+    leap = input("Year: ")
+    while (not leap.isdigit()):
+        print("Invalid year.")
+        leap_= input("Year: ")
+
+    if (int(leap) % 4 == 0):
+        # it's a leap year
+        days_list[1] = 29
+
 def get_date(): 
     month = input("Enter month: ")
     while (month.lower() not in month_list):
@@ -30,7 +40,7 @@ def get_date():
     day = input("Enter day: ")
 
     while (keep_going):
-        if (day.isdigit() and int(day) <= days_list[month_numbers[month.lower()] - 1]):
+        if (day.isdigit() and int(day) <= days_list[month_numbers[month.lower()] - 1] and int(day) > 0):
             keep_going = False
         else: 
             print("Invalid day. ")
@@ -89,6 +99,8 @@ def print_results(month, day, final_month, final_day, total_days, meals):
 
 # main
 meals = get_meal_swipes()
+
+leap_year()
 
 print("--- Starting Date ---")
 month, day = get_date()

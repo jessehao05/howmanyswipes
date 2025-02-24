@@ -5,6 +5,7 @@ Script that calculates daily meal swipes needed to exhaust all meal swipes by th
 To-do:
 
 - Skip asking for Spring/Fall Break days if the current date is past those breaks
+- Taking numbers as inputs on month
 
 Done:
 

@@ -32,6 +32,24 @@ def leap_year():
 
 def get_date(): 
     month = input("Enter month: ")
+
+    done = False
+    while (not done):
+        if (month.isdigit()):
+            if (int(month) < 1 or int(month) > 12):
+                print("Invalid month.")
+                month = input("Enter month: ")
+            else: 
+                month = month_list[int(month) - 1]
+                done = True
+        else:
+            if (month.lower() not in month_list):
+                print("Invalid month.")
+                month = input("Enter month: ")
+            else:
+                done = True
+                   
+
     while (month.lower() not in month_list):
         print("Invalid month.")
         month = input("Enter month: ")

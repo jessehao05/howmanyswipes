@@ -82,10 +82,11 @@ def calc_days(month, day, final_month, final_day):
     return days
 
 def break_days(days, month):
+    more_breaks = input("Are there any more breaks in the semester (y|n)? ").lower()
+    if (not more_breaks == 'yes' and not more_breaks == 'y'):
+        return days
+
     if (month_numbers[month.lower()] <= 5):
-
-        # add if statement to check if the date is past spring/fall break. if so, skip asking about spring/fall break
-
         remove = input("Remove (8) Spring Break days (y|n)? ").lower()
         if (remove == 'yes' or remove == 'y'):
             days -= 8

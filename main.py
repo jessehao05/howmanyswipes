@@ -63,8 +63,7 @@ def get_date():
         else: 
             print("Invalid day. ")
             day = input("Enter day: ")
-        
-    # add handling of numbers greater than the days in a certain month (ex. january 32)    
+           
     return month, int(day)
 
 def calc_days(month, day, final_month, final_day):

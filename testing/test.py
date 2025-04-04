@@ -36,53 +36,105 @@ month_numbers = {
 
 days_list = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] # days in each month
 
+
 def get_meal_swipes():
     return int(input("Meal swipes remaining: "))
 
+
+def leap_year():
+    leap = input("Year: ")
+    while (not leap.isdigit()):
+        print("Invalid year.")
+        leap_= input("Year: ")
+
+    if (int(leap) % 4 == 0):
+        # it's a leap year
+        days_list[1] = 29
+
+
 def get_date(): 
     month = input("Enter month: ")
+
+    done = False
+    while (not done):
+        if (month.isdigit()):
+            if (int(month) < 1 or int(month) > 12):
+                print("Invalid month.")
+                month = input("Enter month: ")
+            else: 
+                month = month_list[int(month) - 1]
+                done = True
+        else:
+            if (month.lower() not in month_list):
+                print("Invalid month.")
+                month = input("Enter month: ")
+            else:
+                done = True
+                   
+
     while (month.lower() not in month_list):
         print("Invalid month.")
         month = input("Enter month: ")
 
+    keep_going = True
     day = input("Enter day: ")
-    while (not day.isdigit()):
-        print("Invalid day. ")
-        day = input("Enter day: ")
 
-    # add handling of numbers greater than the days in a certain month (ex. january 32)    
-
+    while (keep_going):
+        if (day.isdigit() and int(day) <= days_list[month_numbers[month.lower()] - 1] and int(day) > 0):
+            keep_going = False
+        else: 
+            print("Invalid day. ")
+            day = input("Enter day: ")
+           
     return month, int(day)
 
+
 def calc_days(month, day, final_month, final_day):
+
+    # cases: same month, one month apart, two or more months apart 
+
     # convert months into numbers to use as indexes later
     month_num = month_numbers[month.lower()]
     final_month_num = month_numbers[final_month.lower()]
 
-    # start by setting days equal to the number of days left in the current month
-    days = days_list[month_num - 1] - day
-    print(days, 'before loop: number days of left in first month')
+    if (month_num == final_month_num):
+        return final_day - day
+    elif (month_num + 1 == final_month_num):
+        return days_list[month_num - 1] - day + final_day
+    else:
+        # start by setting days equal to the number of days left in the current month
+        days = days_list[month_num - 1] - day
+        print('TESTING: Days left in current month: ', days)
 
-    for i in range(month_num, final_month_num - 1):
-        days += days_list[i]
-        print(days, 'in loop: after the month', i)
-    print(days, 'outside loop: before final month')
+        # start one month after beginning month, then go up until one before the last month
+        for i in range(month_num, final_month_num - 1):
+            days += days_list[i]
+        print('TESTING: Days after adding other months: ', days)
 
-    days += final_day
-    print(days, 'after final month')
+        days += final_day
+        print("TESTING: days after adding final day: ", days)
 
-    return days
+        return days
+    
 
 def break_days(days, month):
+    more_breaks = input("Are there any more breaks in the semester (y|n)? ").lower()
+    if (not more_breaks == 'yes' and not more_breaks == 'y'):
+        return days
+
     if (month_numbers[month.lower()] <= 5):
-        if (input("Remove (8) Spring Break days (yes/no)? ").lower() == 'yes'):
+        remove = input("Remove (8) Spring Break days (y|n)? ").lower()
+        if (remove == 'yes' or remove == 'y'):
             days -= 8
     else:
-        if (input("Remove (3) Fall Break days (yes/no)? ").lower()):
+        remove = input("Remove (3) Fall Break days (y|n)? ").lower()
+        if (remove == 'yes' or remove == 'y'):
             days -= 3
-        if (input("Remove (8) Thanksgiving Break days (yes/no)? ").lower()):
+        remove = input("Remove (8) Thanksgiving Break days (y|n)? ").lower()
+        if (remove == 'yes' or remove == 'y'):
             days -= 8
     return days
+
 
 def farmers_market(meals):
     num = int(input("Estimated swipes to be used on Farmer's Market: "))
@@ -101,21 +153,32 @@ def print_results(month, day, final_month, final_day, total_days, meals):
     print('')
     return
 
+
+print('TESTING: getting swipes and dates\n')
+# get swipes
 meals = get_meal_swipes()
 
+# get dates
 print("--- Starting Date ---")
 month, day = get_date()
 
 print("--- Ending Date ---")
 final_month, final_day = get_date()
 
+# initial days calculation
 total_days = calc_days(month, day, final_month, final_day)
-print(total_days, 'total days before break calculations')
+print('\nTESTING: initial days calculation')
+print(total_days, 'total days before break calculations\n')
+
+# break days calcaultion
 total_days = break_days(total_days, month)
-print(total_days, 'total days')
+print('\nTESTING: after break days')
+print(total_days, 'total days\n')
 
-
+# farmers' market calculation
 meals = farmers_market(meals)
-print(meals, 'meals after farmers market')
+print("\nTESTING: after farmers' market")
+print(meals, 'meals after farmers market\n')
 
+# print final results
 print_results(month, day, final_month, final_day, total_days, meals)

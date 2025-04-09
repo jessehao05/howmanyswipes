@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>How Many Swipes?</title>
+</head>
+<body>
+
+    <h1>meal swipes</h1>
+    <form action="results.html" method="GET">
+        <div>
+            <label for="swipes">Meal swipes remaining: </label>
+            <input type="number" id="swipes" name="swipes" placeholder="Ex. 120"required><br>
+        </div>
+        
+        <div>
+            <label for="startDate">Starting From: </label>
+            <input type="date" id="endingDate" name="startDate" required><br>
+        </div>
+        
+        <div>
+            <label for="endDate">Last Day: </label>
+            <input type="date" id="endDate" name="endDate" required><br>
+        </div>
+        
+        
+        <div>
+            <input type="checkbox" id="fallBreak" name="fallBreak">
+            <label for="fallBreak">Fall Break</label><br>  
+        </div>
+        
+        <div>
+            <input type="checkbox" id="turkey" name="turkey">
+            <label for="turkey">Thanksgiving</label><br> 
+        </div>
+            
+        <div>
+            <input type="checkbox" id="springBreak" name="thanksgiving">
+            <label for="springBreak">Spring Break</label><br>
+        </div>
+
+        <div>
+            <label for="fMarket">Estimated Swipes for Farmers' Market: </label>
+            <input type="number" id="fMarket" name="fMarket" placeholder="Ex. 5">
+        </div>
+        
+        <button type="reset">Reset</button>
+        <button type="submit">Calculate</button>
+    </form>
+</body>
+</html>

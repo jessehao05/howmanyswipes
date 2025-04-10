@@ -24,6 +24,19 @@ const lastDay = parseInt(endDateArray[2]);
 // array for number of days each month
 const daysInMonth = [31, (year % 4 === 0 ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
+// console testing
+console.log(`starting date: ${startDate}`);
+console.log(`starting date type: ${typeof startDate}`);
+console.log(`year: ${year}`);
+console.log(`start month: ${firstMonth}`);
+console.log(`start day: ${firstDay}`);
+console.log(`ending date: ${endDate}`);
+console.log(`fall break type: ${typeof fallBreak}`);
+console.log(`spring break: ${springBreak}`);
+console.log(`spring break type: ${typeof springBreak}`);
+const str = 'str';
+console.log(typeof str === 'string')
+
 calcDays = () => {
     if (firstMonth === lastMonth) {
         return lastDay - firstDay;

@@ -1,5 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-const resultsDiv = document.getElementById('results');
+const resultsDiv = document.getElementById('result-text');
 
 // getting data from html form
 let swipes = params.get('swipes');

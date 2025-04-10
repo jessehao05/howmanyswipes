@@ -65,5 +65,15 @@ h1 {
 
 #calculate:hover {
     background-color: #516bb8;
+}
 
+#results {
+    align-items: center;
+    width: 400px;
+    height: 300px;
+    margin: 200px;
+    padding: 50px;
+    background-color: #f5f1f1;
+    text-align: center;
+    
 }

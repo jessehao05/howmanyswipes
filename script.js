@@ -59,11 +59,11 @@ farmersMarket = () => {
 
 displayResults = () => {
     resultsDiv.innerHTML = `
-        <p>Meals per day: ${(swipes / total_days).toFixed(2)}</p><br>
-        <p>Days left: ${total_days}</p>
-        <p>Meal swipes: ${swipes}</p>
+        <p>Meals per day: <strong>${(swipes / total_days).toFixed(2)}</strong></p><br>
         <p>Starting date: ${startDate}</p>
         <p>Ending date: ${endDate}</p>
+        <p>Days left: <strong>${total_days}</strong></p>
+        <p>Meal swipes: <strong>${swipes}</strong></p>
         `
 }
     

@@ -4,6 +4,6 @@ Script that calculates daily meal swipes needed to exhaust all meal swipes by th
 
 To-do:
 
-- Visual with multiple options (i.e. 3 vs. 4 per day?), chrome extension? website?
+- Chrome extension, more styling
 - With and without break days - though it'll be hard to determine whether or not to include break (?) without asking user since break days vary
 - Meal money

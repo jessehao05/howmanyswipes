@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="mealstyles.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="calc-container">
+        <div class="title">How Many Meals?</div>
+        
+        <form id="form" action="results.html" method="GET">
+            <div class="input required">
+                <div class="labels">Meal swipes remaining: </div>
+                <input type="number" id="swipes" name="swipes" placeholder="Ex. 120" required><br>
+            </div>
+
+            <div class="input optional">
+                <div class="labels">Meal money remaining: </div>
+                <input type="number" id="money" name="money" placeholder="Ex. 180.25" step=".01"><br>
+            </div>
+            
+            <div class="input required">
+                <div class="labels">Today's date:</div>
+                <input type="date" id="endingDate" name="startDate" required><br>
+            </div>
+            
+            <div class="input required">
+                <div class="labels">Last day on campus:</div>
+                <input type="date" id="endDate" name="endDate" required><br>
+            </div>
+
+            <div class="subheading">
+                Optional:
+            </div>
+            
+            <div class="input optional" id="top-optional">
+                <div class="labels">Select remaining breaks (unless staying on campus):</div>
+                <div class="checkbox">
+                    <input type="checkbox" id="fallBreak" name="fallBreak">
+                    <label for="fallBreak">Fall Break&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><br>  
+                </div>
+                
+                <div class="checkbox">
+                    <input type="checkbox" id="turkey" name="turkey">
+                    <label for="turkey">Thanksgiving</label><br> 
+                </div>
+                    
+                <div class="checkbox">
+                    <input type="checkbox" id="springBreak" name="thanksgiving">
+                    <label for="springBreak">Spring Break&nbsp;</label><br>
+                </div>
+            </div>
+
+            <div class="input optional" id="bottom-optional">
+                <div class="labels">Estimated swipes for Farmers' Market</div>
+                <input type="number" id="fMarket" name="fMarket" placeholder="Ex. 0, 5, 8">
+            </div>
+            
+            <div class="buttons">
+                <button id="calculate" type="submit">Calculate</button>
+                <button id="reset" type="reset">Reset</button>
+            </div>
+            
+        </form>
+
+
+    </div>
+
+</body>
+</html>

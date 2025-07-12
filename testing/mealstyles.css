@@ -1,0 +1,22 @@
+.calc-container {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.input {
+    border: 1px solid red;
+    padding: 1rem; 
+}
+
+.title {
+    padding: 2rem;
+}
+
+.buttons {
+    padding: 2rem;
+}
+
+.subheading {
+    margin: 2rem 0 0 0;
+    text-decoration: underline;
+}

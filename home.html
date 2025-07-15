@@ -32,33 +32,23 @@
             <input type="submit" class="submit-button" value="Calculate">
         </form>
 
+    </div>
 
-
-
+    <div class="results-container">
+        <p class="results-text">
+        </p>
     </div>
 
     <script>
         const form = document.querySelector(".meal-swipes-form");
+        
+        // form elements + farmerSwipes
+        let meals, startDate, endDate, fallBreak, turkeyBreak, springBreak, farmers, farmerSwipes;
 
-        let meals;
-        let startDate;
-        let endDate;
+        // form elements - dates
+        let startDateArray, year, firstMonth, firstDay, endDateArray, lastMonth, lastDay;
 
-        let fallBreak; 
-        let turkeyBreak;
-        let springBreak
-        let farmers;
-
-        let startDateArray;
-        let year;
-        let firstMonth;
-        let firstDay;
-
-        let endDateArray;
-        let lastMonth;
-        let lastDay;
-
-        let farmerSwipes;
+        let days;
 
 
         function getInputs() {
@@ -83,21 +73,56 @@
             lastDay = parseInt(endDateArray[2]);
         }
 
-        function calculate() {
+        function calculateDays() {
+            const daysInMonth = [31, (year % 4 === 0 ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
             
+            if (firstMonth === lastMonth) {
+                days = lastDay - firstDay;
+            } else if (firstMonth + 1 === lastMonth) {
+                days = daysInMonth[firstMonth - 1] - firstDay + lastDay;
+            } else {
+                days = daysInMonth[firstMonth - 1] - firstDay
+
+                for (let i = firstMonth; i < lastMonth; ++i) {
+                    days += daysInMonth[i];
+                }
+                days += lastDay;
+            };
         }
 
-        function test() {
-            meals += 20;
-            meals += farmerSwipes;
+        function removeBreakDays() {
+            if (fallBreak) {
+                days -= 3;
+            } 
+            if (turkeyBreak) {
+                days -= 8; 
+            } 
+            if (springBreak) {
+                days -= 8;
+            }
+        }
+
+        function removeFarmers() {
+            meals -= farmerSwipes;
+        }
+
+        function displayResults() {
             console.log(meals);
+            const results = document.querySelector('.results-text');
+            results.innerHTML = `
+                Meals per day: <strong>${(meals / days).toFixed(2)}</strong><br>
+                Meals remaining: <strong>${meals}</strong><br>
+                Days remaining: <strong>${days}</strong>
+            `;
         }
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             getInputs();
-            calculate();
-            test();
+            calculateDays();
+            removeBreakDays();
+            removeFarmers();
+            displayResults();
         })
 
     </script>

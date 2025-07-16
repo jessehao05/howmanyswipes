@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Home</title>
-</head>
-<body>
-    <div class="form-container">
-        <div class="title">Meal Swipe Calculator</div>
 
-        <form action="" class="meal-swipes-form">
-
-            <div class="input-label">Meal swipes remaining:</div>
-            <input type="number" id="meals-remaining" class="number-input" required>
-
-            <div class="input-label">Start date (today):</div>
-            <input type="date" id="start-date" class="date-input" required>
-
-            <div class="input-label">Final day:</div>
-            <input type="date" id="end-date" class="date-input" required>
-
-            <div class="input-label">Select remaining breaks (unless staying on campus):</div>
-            <input type="checkbox" id="fall-break"> Fall Break 
-            <input type="checkbox" id="turkey-break"> Thanksgiving Break
-            <input type="checkbox" id="spring-break"> Spring Break
-
-            <div class="input-label">Estimated swipes for Farmers' Market</div>
-            <input type="number" id="farmers" class="number-input">
-
-            <input type="submit" class="submit-button" value="Calculate">
-        </form>
-
-    </div>
-
-    <div class="results-container">
-        <p class="results-text">
-        </p>
-    </div>
-
-    <script>
         const form = document.querySelector(".meal-swipes-form");
         
         // form elements + farmerSwipes
@@ -109,6 +68,7 @@
         function displayResults() {
             console.log(meals);
             const results = document.querySelector('.results-text');
+            results.classList.add('active');
             results.innerHTML = `
                 Meals per day: <strong>${(meals / days).toFixed(2)}</strong><br>
                 Meals remaining: <strong>${meals}</strong><br>
@@ -124,7 +84,3 @@
             removeFarmers();
             displayResults();
         })
-
-    </script>
-</body>
-</html>

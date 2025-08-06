@@ -64,7 +64,7 @@ function displayResults() {
     results.innerHTML = `
         Meal money left: <strong>$${money}</strong><br>
         Number of meals: <strong>${Math.round(money / dollarsPerMeal)}</strong><br>
-        Remaining money: <strong>$${money % dollarsPerMeal}</strong>
+        Remaining money: <strong>$${(money % dollarsPerMeal).toFixed(2)}</strong>
     `;
 }
 

@@ -7,3 +7,7 @@ To-do:
 - Chrome extension, more styling
 - With and without break days - though it'll be hard to determine whether or not to include break (?) without asking user since break days vary
 - Meal money
+
+styling:
+
+- ask for dates, then meal swipes OR meal money (labels)

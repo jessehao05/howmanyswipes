@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit', 'Gill Sans MT', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +44,7 @@ input {
 } */
 
 input[type='date'], input[type='number'] {
-    font-family: 'Outfit';
+    font-family: 'Outfit', 'Gill Sans MT', sans-serif;
     width: 100%;
 }
 
@@ -64,7 +64,7 @@ input[type='checkbox'] {
 }
 
 .submit-button {
-    font-family: 'Outfit';
+    font-family: 'Outfit', 'Gill Sans MT', sans-serif;
     width: 50%;
     margin: 0.5rem 0 0 25%;
     border: 1px solid white;

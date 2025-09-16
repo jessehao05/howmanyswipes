@@ -2,6 +2,8 @@
 
 Script that calculates daily meal swipes needed to exhaust all meal swipes by the end of the semester.
 
+NOTE: The remaining meals doesn't take into account how many more meals you will have today (the start date). The actual number of "remaining meals" would be the calculator result plus the additional number of meals you'll have today.
+
 ## Instructions
 
 Visit https://jessehao05.github.io/howmanyswipes/

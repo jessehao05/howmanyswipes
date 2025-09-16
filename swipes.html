@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Many Swipes?</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/assets/egg-svgrepo-com.svg" />
+    <link rel="stylesheet" href="swipes.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-text">
+            Meal Swipe Calculator
+        </div>
+        <hr>
+    </nav>
+
+    <div class="flex flex-wrap justify-center items-center gap-24">
+        <form id="swipesForm" class="flex flex-col gap-4 mt-10">
+            
+            <label class="form-control w-full max-w-xs">
+                <div class="label">
+                    <span class="label-text">Meal swipes remaining:</span>
+                </div>
+                <input 
+                    id="swipes"
+                    type="number" 
+                    placeholder="Ex. 225" 
+                    class="input input-bordered w-full max-w-xs rounded-md" 
+                    required 
+                />
+            </label>
+
+            <label class="form-control w-full max-w-xs">
+                <div class="label">
+                    <span class="label-text">Start date (today):</span>
+                </div>
+                <input 
+                    id="startDate"
+                    type="date" 
+                    class="input input-bordered w-full max-w-xs rounded-md" 
+                    required
+                />
+            </label>
+
+            <label class="form-control w-full max-w-xs">
+                <div class="label">
+                    <span class="label-text">Final day:</span>
+                </div>
+                <input 
+                    id="endDate"
+                    type="date" 
+                    class="input input-bordered w-full max-w-xs rounded-md" 
+                    required
+                />
+            </label>
+
+            <label class="form-control w-full max-w-xs">
+                <div class="label">
+                    <span class="label-text">Remaining breaks (unless staying on campus):</span>
+                </div>
+                <label class="label justify-normal gap-2 cursor-pointer">
+                    <input 
+                        id="fallBreak"
+                        type="checkbox" 
+                        class="checkbox rounded-lg" 
+                    />
+                    <span class="label-text">Fall Break</span>
+                </label>
+                <label class="label justify-normal gap-2 cursor-pointer">
+                    <input 
+                        id="thanksgiving"
+                        type="checkbox" 
+                        class="checkbox rounded-lg" 
+                    />
+                    <span class="label-text">Thanksgiving Break</span>
+                </label>
+                <label class="label justify-normal gap-2 cursor-pointer">
+                    <input 
+                        id="springBreak"
+                        type="checkbox" 
+                        class="checkbox rounded-lg" 
+                    />
+                    <span class="label-text">Spring Break</span>
+                </label>
+            </label>
+
+            <label class="form-control w-full max-w-xs">
+                <div class="label">
+                    <span class="label-text">Estimated swipes for Farmers' Market:</span>
+                </div>
+                <input 
+                    id="farmers"
+                    type="number" 
+                    placeholder="Ex. 4" 
+                    class="input input-bordered w-full max-w-xs rounded-md"
+                />
+            </label>
+
+            <div class="flex gap-2 justify-end mt-4">
+                <button type="reset" class="btn btn-secondary w-20 rounded-lg">Clear</button>
+                <button type="submit" class="btn btn-primary w-20 rounded-lg">Submit</button>
+            </div>
+           
+        </form>
+
+        <div id="results" class="hidden">
+            <!-- results here -->
+        </div>
+        
+    </div>
+
+    <script src="swipes.js"></script>
+</body>
+</html>

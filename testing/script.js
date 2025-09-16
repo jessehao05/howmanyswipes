@@ -32,7 +32,7 @@ calcDays = () => {
     } else {
         let days = daysInMonth[firstMonth - 1] - firstDay
 
-        for (let i = firstMonth; i < lastMonth; ++i) {
+        for (let i = firstMonth; i < lastMonth - 1; ++i) {
             days += daysInMonth[i];
         }
         days += lastDay;

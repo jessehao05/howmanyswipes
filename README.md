@@ -2,8 +2,6 @@
 
 Script that calculates daily meal swipes needed to exhaust all meal swipes by the end of the semester.
 
-To-do:
+## Instructions
 
-- Chrome extension, more styling
-- With and without break days - though it'll be hard to determine whether or not to include break (?) without asking user since break days vary
-- Meal money
+See Python terminal version for quick use: [GitHub repo](https://github.com/jessehao05/meal_swipes_python)
